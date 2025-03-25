@@ -1,0 +1,202 @@
+/* Modern Roadmap Styling */
+.roadmap-page {
+  width: 100%;
+  min-height: calc(100vh - 140px);
+  padding: 2rem;
+  background: #000;
+  color: #fff;
+}
+
+.page-title {
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 3rem;
+  background: linear-gradient(to right, #0095FF, #0055FF);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.02em;
+}
+
+/* Navigation Controls */
+.roadmap-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3rem;
+  gap: 1.5rem;
+}
+
+.nav-arrow {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  border: none;
+  background: #111;
+  color: #fff;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.nav-arrow:hover {
+  background: rgba(0, 149, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.phase-indicators {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.phase-indicator {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  border: none;
+  background: #111;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.phase-indicator.active {
+  background: #0095FF;
+  transform: scale(1.2);
+}
+
+/* Phase Content Card */
+.phase-card {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 3rem;
+  padding-right: 8rem;
+  background: #111;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.status-tag {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  padding: 0.5rem 1.5rem;
+  border-radius: 2rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  z-index: 10;
+}
+
+.status-tag.completed {
+  background: linear-gradient(90deg, rgba(0, 149, 255, 0.2) 0%, rgba(0, 149, 255, 0.5) 100%);
+  color: #0095FF;
+}
+
+.status-tag.in-progress {
+  background: linear-gradient(90deg, rgba(0, 200, 150, 0.2) 0%, rgba(0, 200, 150, 0.5) 100%);
+  color: #00c896;
+}
+
+.status-tag.planned {
+  background: linear-gradient(90deg, rgba(160, 174, 192, 0.2) 0%, rgba(160, 174, 192, 0.5) 100%);
+  color: #a0aec0;
+}
+
+.phase-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  color: #fff;
+}
+
+.phase-description {
+  color: #a0aec0;
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.milestones {
+  position: relative;
+  list-style-type: none;
+  padding-left: 1.5rem;
+  margin-bottom: 2rem;
+  border-left: none;
+}
+
+.milestone-item {
+  position: relative;
+  padding: 0.5rem 0 0.5rem 1rem;
+  color: #e2e8f0;
+  line-height: 1.5;
+  transition: transform 0.2s ease;
+  margin-bottom: 0.5rem;
+}
+
+.milestone-item:hover {
+  transform: translateX(5px);
+}
+
+.milestone-item::before {
+  content: "•";
+  position: absolute;
+  left: -0.5rem;
+  top: 0.5rem;
+  font-size: 1.25rem;
+  color: #0095FF;
+}
+
+.achievement-note {
+  display: inline-block;
+  margin-top: 1rem;
+  color: #0095FF;
+  font-weight: 600;
+  background: rgba(0, 149, 255, 0.1);
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  border-left: 3px solid #0095FF;
+}
+
+.phase-counter {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .roadmap-page {
+    padding: 1.5rem 1rem;
+  }
+  
+  .page-title {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .phase-card {
+    padding: 2rem 1.5rem;
+    padding-right: 2rem;
+  }
+  
+  .phase-title {
+    font-size: 1.75rem;
+    padding-right: 6rem;
+  }
+  
+  .status-tag {
+    top: 1.5rem;
+    right: 1.5rem;
+    padding: 0.35rem 0.75rem;
+    font-size: 0.75rem;
+  }
+} 

@@ -1,0 +1,81 @@
+/* Global resets to ensure no white borders */
+html, body, #root {
+  background: #000000;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.App {
+  text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-container {
+  min-height: 100vh;
+  width: 100vw;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(to bottom, #000000, #0a0b0f);
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  border: none !important;
+  outline: none !important;
+}
+
+.main-content {
+  flex: 1;
+  margin-top: 80px; /* Height of header */
+  margin-bottom: 120px; /* Height of info bar */
+  position: relative;
+}
+
+/* Update game page styles to work with new layout */
+.game-page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, #000000, #0a0b0f);
+  z-index: 50;
+  border: none !important;
+  outline: none !important;
+}
+
+.home-header {
+  background: #000000;
+  color: #e2e8f0;
+  padding: 1.25rem 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  border: none !important;
+}
+
+.info-bar {
+  background: #000000 !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  padding: 1.5rem 2rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 90;
+  margin: 0 !important;
+  text-align: center;
+} 

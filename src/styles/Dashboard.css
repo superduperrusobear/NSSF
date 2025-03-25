@@ -1,0 +1,827 @@
+.dashboard-container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #000000;
+  color: #e2e8f0;
+  padding: 2rem;
+  position: relative;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.dashboard-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0;
+  background: linear-gradient(to right, #0095FF, #0055FF);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.dashboard-balance {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-bottom: 2rem;
+}
+
+.balance-label {
+  font-size: 0.9rem;
+  color: #a0aec0;
+}
+
+.balance-amount {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #0095FF;
+}
+
+.dashboard-nav {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 1rem;
+}
+
+.nav-button {
+  background: none;
+  border: none;
+  color: #a0aec0;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-button:hover {
+  color: #e2e8f0;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.nav-button.active {
+  color: #0095FF;
+  background: rgba(0, 149, 255, 0.1);
+}
+
+.nav-icon {
+  stroke: currentColor;
+}
+
+/* Account Overview */
+.account-overview {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.dashboard-summary {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.profile-avatar {
+  width: 5rem;
+  height: 5rem;
+  background: linear-gradient(135deg, #0095FF, #0055FF);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 700;
+  box-shadow: 0 0 20px rgba(0, 149, 255, 0.5);
+}
+
+.profile-info {
+  flex: 1;
+}
+
+.username-vip {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.profile-info h3 {
+  margin: 0;
+  color: #e2e8f0;
+  font-size: 1.5rem;
+}
+
+.vip-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(to right, #CD7F32, #DAA520);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: white;
+}
+
+.vip-icon {
+  stroke: white;
+  fill: rgba(255, 255, 255, 0.2);
+  width: 16px;
+  height: 16px;
+}
+
+.profile-info p {
+  margin: 0 0 0.75rem 0;
+  color: #a0aec0;
+  font-size: 0.9rem;
+}
+
+.vip-progress {
+  max-width: 300px;
+}
+
+.vip-progress-bar {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.vip-progress-fill {
+  height: 100%;
+  background: linear-gradient(to right, #CD7F32, #DAA520);
+  border-radius: 3px;
+}
+
+.vip-progress-text {
+  font-size: 0.8rem;
+  color: #a0aec0;
+}
+
+/* Quick Actions */
+.quick-actions {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.quick-actions .action-button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex: 1;
+  max-width: 180px;
+  font-size: 1rem;
+}
+
+.action-button.deposit {
+  background: linear-gradient(to right, #0095FF, #0055FF);
+  color: white;
+}
+
+.action-button.withdraw {
+  background: rgba(255, 255, 255, 0.1);
+  color: #e2e8f0;
+}
+
+.action-button.play {
+  background: linear-gradient(to right, #10B981, #059669);
+  color: white;
+}
+
+.action-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Stats and Cards */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.stat-card {
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.stat-title {
+  font-size: 1rem;
+  color: #a0aec0;
+  margin-bottom: 0.75rem;
+}
+
+.stat-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #e2e8f0;
+}
+
+.stat-value.highlight {
+  background: linear-gradient(to right, #0095FF, #0055FF);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: 2rem;
+}
+
+.stat-value.code {
+  font-size: 1.25rem;
+  font-family: monospace;
+  padding: 0.5rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.copy-button {
+  background: linear-gradient(to right, #0095FF, #0055FF);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.copy-button:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+/* Active Bonuses */
+.active-bonuses {
+  margin-top: 1rem;
+}
+
+.active-bonuses h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #e2e8f0;
+  font-size: 1.25rem;
+}
+
+.bonus-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+}
+
+.bonus-info {
+  flex: 1;
+}
+
+.bonus-name {
+  font-weight: 600;
+  color: #e2e8f0;
+  margin-bottom: 0.5rem;
+}
+
+.bonus-progress {
+  width: 100%;
+  max-width: 400px;
+}
+
+.bonus-bar {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.bonus-fill {
+  height: 100%;
+  background: linear-gradient(to right, #0095FF, #0055FF);
+  border-radius: 3px;
+}
+
+.bonus-text {
+  font-size: 0.8rem;
+  color: #a0aec0;
+}
+
+.bonus-value {
+  font-weight: 700;
+  color: #10B981;
+  font-size: 1.1rem;
+}
+
+/* SVG Icons */
+.activity-svg {
+  width: 24px;
+  height: 24px;
+}
+
+.win-icon {
+  stroke: #10B981;
+}
+
+.loss-icon {
+  stroke: #EF4444;
+}
+
+.deposit-icon, 
+.withdrawal-icon {
+  stroke: #0095FF;
+}
+
+/* Recent Activity */
+.recent-activity {
+  margin-top: 1rem;
+}
+
+.recent-activity h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #e2e8f0;
+  font-size: 1.25rem;
+}
+
+.activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.activity-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+}
+
+.activity-icon {
+  min-width: 2rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.activity-details {
+  flex: 1;
+}
+
+.activity-title {
+  font-weight: 600;
+  color: #e2e8f0;
+  margin-bottom: 0.25rem;
+}
+
+.activity-time {
+  font-size: 0.8rem;
+  color: #a0aec0;
+}
+
+.activity-amount {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.positive {
+  color: #10B981;
+}
+
+.negative {
+  color: #EF4444;
+}
+
+/* Transactions Section */
+.transactions-section {
+  padding: 1rem 0;
+}
+
+.transactions-filters {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.transactions-section h3 {
+  margin: 0;
+  color: #e2e8f0;
+  font-size: 1.25rem;
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.filter-button {
+  background: rgba(255, 255, 255, 0.05);
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  color: #a0aec0;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.filter-button.active {
+  background: rgba(0, 149, 255, 0.1);
+  color: #0095FF;
+}
+
+.transaction-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.transaction-item {
+  display: grid;
+  grid-template-columns: auto 1fr 1fr 1.5fr 1fr 1fr;
+  align-items: center;
+  padding: 1rem;
+  transition: all 0.3s ease;
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+}
+
+.transaction-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.transaction-type {
+  font-weight: 600;
+  color: #e2e8f0;
+}
+
+.transaction-game,
+.transaction-time {
+  color: #a0aec0;
+  font-size: 0.9rem;
+}
+
+.transaction-amount {
+  font-weight: 700;
+  text-align: right;
+}
+
+.transaction-status {
+  color: #a0aec0;
+  font-size: 0.9rem;
+  text-align: right;
+}
+
+/* Referrals Section */
+.referrals-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.referral-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.referral-benefits {
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.referral-benefits h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #e2e8f0;
+  font-size: 1.25rem;
+}
+
+.benefits-list {
+  padding-left: 1.5rem;
+  margin: 0;
+}
+
+.benefits-list li {
+  color: #a0aec0;
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+}
+
+.referred-users {
+  margin-top: 1rem;
+}
+
+.referred-users h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #e2e8f0;
+  font-size: 1.25rem;
+}
+
+.referred-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.referred-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 1rem;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+}
+
+.referred-username {
+  font-weight: 600;
+  color: #e2e8f0;
+}
+
+.referred-date, 
+.referred-wagers {
+  color: #a0aec0;
+  font-size: 0.9rem;
+}
+
+.no-referrals {
+  padding: 2rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.no-referrals p {
+  color: #a0aec0;
+  margin: 0;
+}
+
+/* Account Settings Link */
+.account-settings-link {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #0095FF;
+  font-size: 1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+}
+
+.account-settings-link:hover {
+  color: white;
+  background: rgba(0, 149, 255, 0.1);
+}
+
+.settings-icon {
+  stroke: currentColor;
+}
+
+/* Settings Modal */
+.settings-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.settings-modal {
+  width: 100%;
+  max-width: 500px;
+  background: #0f0f0f;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.modal-header {
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-header h3 {
+  margin: 0;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  color: #a0aec0;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.modal-close:hover {
+  color: white;
+}
+
+.modal-options {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.modal-option {
+  background: rgba(255, 255, 255, 0.05);
+  border: none;
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  color: #e2e8f0;
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.modal-option:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateX(4px);
+}
+
+.modal-option.danger {
+  margin-top: 1rem;
+  color: #EF4444;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 1.5rem;
+  }
+
+  .dashboard-nav {
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+
+  .nav-button {
+    padding: 0.5rem 1rem;
+    min-width: max-content;
+  }
+
+  .profile-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .username-vip {
+    justify-content: center;
+  }
+
+  .vip-progress {
+    margin: 0 auto;
+  }
+
+  .quick-actions {
+    flex-direction: column;
+  }
+
+  .quick-actions .action-button {
+    max-width: 100%;
+  }
+
+  .transaction-item {
+    grid-template-columns: auto 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 0.5rem;
+  }
+
+  .transaction-icon {
+    grid-row: 1;
+    grid-column: 1;
+  }
+
+  .transaction-type {
+    grid-row: 1;
+    grid-column: 2;
+  }
+
+  .transaction-game {
+    grid-row: 1;
+    grid-column: 3;
+  }
+
+  .transaction-time {
+    grid-row: 2;
+    grid-column: 1 / span 3;
+  }
+
+  .transaction-amount {
+    grid-row: 3;
+    grid-column: 1 / span 2;
+    text-align: left;
+  }
+
+  .transaction-status {
+    grid-row: 3;
+    grid-column: 3;
+    text-align: right;
+  }
+
+  .referred-item {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 0.5rem;
+  }
+
+  .settings-modal {
+    max-width: 90%;
+    margin: 0 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .stat-value {
+    font-size: 1.5rem;
+  }
+
+  .stat-value.highlight {
+    font-size: 1.75rem;
+  }
+
+  .nav-button span {
+    display: none;
+  }
+
+  .modal-option {
+    padding: 0.75rem 1rem;
+  }
+
+  .transactions-filters {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+} 

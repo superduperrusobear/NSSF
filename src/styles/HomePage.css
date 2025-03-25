@@ -1,0 +1,595 @@
+/* Apply no scrolling to all relevant containers */
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body.no-scroll {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1; /* Lower z-index than modal */
+}
+
+.home-container {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #000000, #0a0b0f);
+  color: #ffffff;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Ensure this is lower than news-ticker z-index */
+}
+
+.home-header {
+  display: flex;
+  align-items: center;
+  padding: 1.25rem 2rem;
+  background: rgba(0, 0, 0, 0.7);
+  border-bottom: 1px solid rgba(0, 149, 255, 0.2);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  backdrop-filter: blur(8px);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  margin-right: 1.5rem;
+}
+
+.home-logo {
+  height: 2.5rem;
+  width: auto;
+}
+
+.nav-divider {
+  color: rgba(0, 149, 255, 0.3);
+  margin: 0 1.25rem;
+  font-weight: 300;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.nav-link {
+  color: #a0aec0;
+  text-decoration: none;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+}
+
+.nav-link:hover {
+  color: #0095FF;
+}
+
+.wallet-section {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.deposit-btn {
+  background: linear-gradient(to right, #0095FF, #0055FF);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(0, 149, 255, 0.2);
+}
+
+.deposit-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 149, 255, 0.3);
+  background: linear-gradient(to right, #0085FF, #0045FF);
+}
+
+.deposit-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 149, 255, 0.2);
+}
+
+.wallet-balance {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 0.75rem 1.25rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(0, 149, 255, 0.2);
+}
+
+.balance-value {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+  background: linear-gradient(to right, #0095FF, #0055FF);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.balance-currency {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #e2e8f0;
+}
+
+.wallet-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #0a0b0f;
+  padding: 0.75rem 1.25rem;
+  border-radius: 9999px;
+  color: #e2e8f0;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  border: 1px solid rgba(0, 149, 255, 0.2);
+}
+
+.wallet-amount {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.sol-icon {
+  width: 14px;
+  height: 14px;
+  margin-right: 0.25rem;
+}
+
+.wallet-address {
+  display: flex;
+  align-items: center;
+  background: #0a0b0f;
+  padding: 0.75rem 1.25rem;
+  border-radius: 9999px;
+  color: #e2e8f0;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  border: 1px solid rgba(0, 149, 255, 0.2);
+}
+
+.dropdown-icon {
+  margin-left: 0.5rem;
+  font-size: 0.75rem;
+  color: #0095FF;
+}
+
+.home-main {
+  padding-top: 100px;
+  padding-bottom: 220px; /* Increased padding to make room for ticker and info-bar */
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-inline: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: calc(100vh - 300px); /* Changed height to min-height and adjusted value */
+  justify-content: center;
+  overflow: visible; /* Changed from hidden to visible */
+  position: relative;
+}
+
+/* Add a flex container for the cards */
+.home-main > .game-card {
+  display: inline-flex; /* Make them display inline */
+}
+
+/* Create a flex container for the cards */
+.game-cards-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.home-cta {
+  text-align: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #e2e8f0;
+  margin-bottom: 2rem;
+  animation: breathe 8s ease-in-out infinite;
+}
+
+.games-carousel {
+  display: none; /* Hide this container as we're not using it */
+}
+
+.game-card {
+  width: 340px; /* Slightly reduced width */
+  background: linear-gradient(to bottom, #000000, #0a0b0f);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  position: relative;
+  border: 1px solid rgba(0, 149, 255, 0.2);
+  height: 480px; /* Slightly reduced height to ensure visibility */
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  margin: 1rem;
+}
+
+.game-card a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.game-card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 149, 255, 0.3);
+  border-color: rgba(0, 149, 255, 0.4);
+}
+
+.game-card:active {
+  transform: translateY(-6px) scale(0.98);
+  box-shadow: 0 12px 30px rgba(0, 149, 255, 0.2);
+}
+
+.game-image {
+  width: 100%;
+  height: 200px; /* Reduced height */
+  background: linear-gradient(135deg, rgba(0, 149, 255, 0.1), rgba(0, 85, 255, 0.1));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.game-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.game-card:hover .game-image img {
+  transform: scale(1.05);
+}
+
+.game-content {
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.game-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: transparent;
+  background: linear-gradient(to right, #0095FF, #0055FF);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.game-description {
+  color: #a0aec0;
+  font-size: 0.9375rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.game-stats {
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+.game-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.game-stat-label {
+  font-size: 0.75rem;
+  color: #a0aec0;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.game-stat-value {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: transparent;
+  background: linear-gradient(to right, #0095FF, #0055FF);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* Remove hero section styles */
+.hero-section {
+  display: none;
+}
+
+/* Update stats section */
+.stats-section {
+  display: none;
+}
+
+.info-bar {
+  background: #000000 !important;
+  border-top: none !important;
+  box-shadow: none !important;
+  padding: 1.5rem 2rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 90;
+  margin-top: -1px; /* Negative margin to cover any possible gap */
+}
+
+.info-stats {
+  display: flex;
+  gap: 4rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.info-item:hover {
+  transform: translateY(-2px);
+}
+
+.info-label {
+  font-size: 0.75rem;
+  color: #a0aec0;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.info-value {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: transparent;
+  background: linear-gradient(to right, #0095FF, #0055FF);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.responsible-gaming {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #a0aec0;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+@keyframes breathe {
+  0%, 100% {
+    opacity: 0.8;
+    filter: drop-shadow(0 0 8px rgba(79, 70, 229, 0.3));
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 12px rgba(79, 70, 229, 0.5));
+  }
+}
+
+/* Media Queries for Responsiveness */
+@media (max-height: 800px) {
+  .home-main {
+    height: auto;
+    padding-top: 90px;
+    padding-bottom: 100px;
+  }
+  
+  .game-card {
+    height: 430px;
+  }
+  
+  .game-image {
+    height: 160px;
+  }
+  
+  .game-description {
+    font-size: 0.85rem;
+  }
+  
+  .home-cta {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .games-carousel {
+    gap: 1.5rem;
+  }
+  
+  .game-card {
+    width: 320px;
+  }
+}
+
+@media (max-width: 1080px) {
+  .home-main {
+    padding-top: 120px;
+  }
+  
+  .games-carousel {
+    gap: 2rem 1rem;
+  }
+  
+  .game-card {
+    width: 300px;
+  }
+}
+
+/* For screens that can only show one card at a time */
+@media (max-width: 768px) {
+  .games-carousel {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .game-card {
+    width: 90%;
+    max-width: 400px;
+  }
+  
+  .home-cta {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .home-main {
+    padding-inline: 1rem;
+  }
+  
+  .info-bar {
+    padding: 1rem;
+  }
+  
+  .info-stats {
+    gap: 1.5rem;
+  }
+}
+
+.upcoming-games-section {
+  width: 100%;
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.upcoming-games-section h3 {
+  color: #38bdf8;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.upcoming-games-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.upcoming-games-list span {
+  color: #e2e8f0;
+  font-size: 1.2rem;
+  position: relative;
+  padding: 0 0.5rem;
+}
+
+.upcoming-games-list span:not(:last-child)::after {
+  content: "•";
+  position: absolute;
+  right: -0.9rem;
+  color: #38bdf8;
+}
+
+@media (max-width: 768px) {
+  .upcoming-games-section h3 {
+    font-size: 1.75rem;
+  }
+  
+  .upcoming-games-list {
+    gap: 1rem;
+  }
+  
+  .upcoming-games-list span {
+    font-size: 1rem;
+  }
+}
+
+.news-ticker-container {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  position: fixed;
+  bottom: 130px;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  padding: 1.75rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: none;
+  overflow: hidden;
+}
+
+.news-ticker {
+  white-space: nowrap;
+  animation: ticker 25s linear infinite;
+  font-size: 1.5rem;
+  color: white;
+  padding: 0 20px;
+  font-weight: 600;
+  text-shadow: none;
+  letter-spacing: 0.5px;
+}
+
+.ticker-highlight {
+  color: #38bdf8;
+  opacity: 0.9;
+  font-weight: 700;
+  margin-right: 0.5rem;
+  text-shadow: none;
+}
+
+@keyframes ticker {
+  0% { transform: translate3d(100%, 0, 0); }
+  100% { transform: translate3d(-150%, 0, 0); }
+}
+
+@media (max-width: 768px) {
+  .news-ticker-container {
+    bottom: 130px; /* Increased for mobile view as well */
+    padding: 1.25rem 0;
+  }
+  
+  .news-ticker {
+    font-size: 1.1rem;
+  }
+} 

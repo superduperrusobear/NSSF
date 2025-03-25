@@ -1,0 +1,460 @@
+body {
+  overflow-y: auto;
+}
+
+.documentation-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #0f1117;
+  color: #ffffff;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Sidebar Styles */
+.documentation-sidebar {
+  width: 280px;
+  min-width: 280px;
+  background-color: #161a24;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  overflow-y: auto;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+.sidebar-header {
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(to bottom, #1a1f2c, #161a24);
+}
+
+.sidebar-logo {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.sidebar-header h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0;
+  flex: 1;
+}
+
+.nav-item {
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  color: #a0aec0;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-left: 3px solid transparent;
+  font-weight: 500;
+}
+
+.nav-item:hover {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.nav-item.active {
+  color: #0095FF;
+  background-color: rgba(0, 149, 255, 0.1);
+  border-left: 3px solid #0095FF;
+  font-weight: 600;
+}
+
+.view-toggle {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.toggle-button {
+  width: 100%;
+  padding: 0.9rem;
+  background: rgba(0, 149, 255, 0.15);
+  color: #ffffff;
+  border: 1px solid rgba(0, 149, 255, 0.3);
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.toggle-button:hover {
+  background: rgba(0, 149, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+.toggle-button:before {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='white'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M4 6h16M4 12h16m-7 6h7'%3E%3C/path%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Content Styles */
+.documentation-content {
+  flex: 1;
+  padding: 2rem;
+  width: 100%;
+  overflow-y: auto;
+  height: 100vh;
+  position: relative;
+  max-width: none;
+}
+
+.doc-section {
+  width: 100%;
+  max-width: none;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  scroll-margin-top: 2rem;
+}
+
+.doc-section:last-child {
+  border-bottom: none;
+  margin-bottom: 2rem;
+}
+
+.doc-section h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.doc-section h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  margin-top: 1rem;
+  color: #ffffff;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+.doc-section h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 2rem 0 1rem;
+  color: #0095FF;
+}
+
+.intro-text {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: #e2e8f0;
+  margin-bottom: 2rem;
+}
+
+.content-block {
+  margin-bottom: 2.5rem;
+}
+
+.content-block p {
+  margin-bottom: 1.25rem;
+  line-height: 1.7;
+  color: #d1d5db;
+  font-size: 1.05rem;
+}
+
+.content-block ul,
+.content-block ol {
+  padding-left: 1.75rem;
+  margin-bottom: 1.5rem;
+  margin-top: 0.75rem;
+}
+
+.content-block li {
+  margin-bottom: 0.75rem;
+  color: #d1d5db;
+  line-height: 1.6;
+  font-size: 1.05rem;
+}
+
+.content-block li::marker {
+  color: #0095FF;
+}
+
+/* Pagination Controls */
+.pagination-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+  width: 100%;
+  padding: 0;
+}
+
+.page-button {
+  background: #1a1f2c;
+  border: 1px solid #0095FF;
+  border-radius: 6px;
+  padding: 0.75rem 1.5rem;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 120px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.page-button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.page-button:not(:disabled):hover {
+  background: #0095FF;
+  color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: translateY(-1px);
+}
+
+.page-button.prev {
+  margin-right: auto;
+}
+
+.page-button.next {
+  margin-left: auto;
+}
+
+.page-indicator {
+  display: none;
+}
+
+/* FAQ Section */
+.faq-block {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.faq-item {
+  padding: 1.75rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.2s ease;
+}
+
+.faq-item:hover {
+  background-color: rgba(255, 255, 255, 0.07);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.faq-item h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  color: #ffffff;
+}
+
+.faq-item p {
+  margin: 0;
+  color: #d1d5db;
+}
+
+/* Better code block styling */
+.content-block pre,
+.content-block code {
+  font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+  background-color: #1a1f2c;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+.content-block pre {
+  padding: 1.25rem;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+
+.content-block code {
+  padding: 0.2rem 0.4rem;
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+  .documentation-container {
+    flex-direction: column;
+    overflow: auto;
+    height: auto;
+  }
+  
+  .documentation-sidebar {
+    width: 100%;
+    min-width: unset;
+    height: auto;
+    position: relative;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    overflow-y: visible;
+  }
+  
+  .documentation-content {
+    height: auto;
+    overflow-y: visible;
+    padding: 2rem 1.5rem;
+  }
+  
+  .sidebar-nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1rem;
+    gap: 0.5rem;
+  }
+  
+  .nav-item {
+    padding: 0.6rem 1rem;
+    border-left: none;
+    border-bottom: 3px solid transparent;
+    border-radius: 4px;
+    font-size: 0.9rem;
+  }
+  
+  .nav-item.active {
+    border-left: none;
+    border-bottom: 3px solid #0095FF;
+  }
+  
+  .doc-section h1 {
+    font-size: 2.2rem;
+  }
+  
+  .doc-section h2 {
+    font-size: 1.8rem;
+  }
+  
+  .pagination-controls {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1.5rem;
+    width: 100%;
+  }
+  
+  .page-button {
+    min-width: 110px;
+    width: auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .documentation-content {
+    padding: 1.5rem 1rem;
+  }
+  
+  .doc-section h1 {
+    font-size: 2rem;
+  }
+  
+  .doc-section h2 {
+    font-size: 1.6rem;
+  }
+  
+  .doc-section h3 {
+    font-size: 1.2rem;
+  }
+  
+  .intro-text {
+    font-size: 1rem;
+  }
+  
+  .content-block p,
+  .content-block li {
+    font-size: 1rem;
+  }
+  
+  .nav-item {
+    font-size: 0.85rem;
+    padding: 0.5rem 0.75rem;
+  }
+  
+  .pagination-controls {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    gap: 1rem;
+  }
+  
+  .page-button {
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+    min-width: 100px;
+  }
+  
+  .page-label {
+    max-width: 100px;
+  }
+}
+
+/* Ensure scrollable content for all sections */
+html, body {
+  scroll-behavior: smooth;
+}
+
+@keyframes fadeInSection {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.single-page-header {
+  margin-bottom: 2rem;
+  padding: 1.5rem 2rem;
+  background: linear-gradient(to right, rgba(0, 149, 255, 0.1), rgba(20, 30, 48, 0.05));
+  border-radius: 10px;
+  border-left: 4px solid #0095FF;
+}
+
+.single-page-header h2 {
+  margin: 0;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+} 
